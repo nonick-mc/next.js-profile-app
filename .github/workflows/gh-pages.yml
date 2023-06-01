@@ -4,7 +4,7 @@ name: github pages
 on:
   push:
     branches:
-    - main
+    - master
 
 jobs:
   build-deploy:
@@ -17,7 +17,7 @@ jobs:
     - name: setup node
       uses: actions/setup-node@v1
       with:
-        node-version: '18.x'
+        node-version: '16.x'
     
     # npm install の際にキャッシュを使うよう設定
     - name: Cache dependencies
