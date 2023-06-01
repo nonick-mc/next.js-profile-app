@@ -26,13 +26,13 @@ const Products: Product[] = [
     name: 'NoNICK.js',
     description: 'Discordサーバー管理BOT',
     href: 'https://nonick-js.com',
-    imgPath: '/icons/nonickjs'
+    imgPath: '/icons/nonickjs.png'
   },
   {
     name: 'NoNICK.stats',
     description: 'Minecraftサーバーの統計表示BOT',
     href: 'https://docs.nonick-js.com/nonick-stats/what-is-nonick-stats/',
-    imgPath: '/icons/nonickstats'
+    imgPath: '/icons/nonickstats.png'
   },
   {
     name: '日本語修正パック',
