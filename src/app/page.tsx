@@ -26,19 +26,19 @@ const Products: Product[] = [
     name: 'NoNICK.js',
     description: 'Discordサーバー管理BOT',
     href: 'https://nonick-js.com',
-    imgPath: '/icons/nonickjs.png'
+    imgPath: 'icons/nonickjs.png'
   },
   {
     name: 'NoNICK.stats',
     description: 'Minecraftサーバーの統計表示BOT',
     href: 'https://docs.nonick-js.com/nonick-stats/what-is-nonick-stats/',
-    imgPath: '/icons/nonickstats.png'
+    imgPath: 'icons/nonickstats.png'
   },
   {
     name: '日本語修正パック',
     description: 'Minecraftの日本語フォントを元に戻す',
     href: 'https://github.com/nonick-mc/minecraft-fixfont',
-    imgPath: '/icons/fixfont.png',
+    imgPath: 'icons/fixfont.png',
   }
 ];
 
