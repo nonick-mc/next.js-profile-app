@@ -26,19 +26,19 @@ const Products: Product[] = [
     name: 'NoNICK.js',
     description: 'Discordサーバー管理BOT',
     href: 'https://nonick-js.com',
-    imgPath: 'nonickjs'
+    imgPath: '/icons/nonickjs'
   },
   {
     name: 'NoNICK.stats',
     description: 'Minecraftサーバーの統計表示BOT',
     href: 'https://docs.nonick-js.com/nonick-stats/what-is-nonick-stats/',
-    imgPath: 'nonickstats'
+    imgPath: '/icons/nonickstats'
   },
   {
     name: '日本語修正パック',
     description: 'Minecraftの日本語フォントを元に戻す',
     href: 'https://github.com/nonick-mc/minecraft-fixfont',
-    imgPath: 'fixfont',
+    imgPath: '/icons/fixfont',
   }
 ];
 
@@ -81,7 +81,7 @@ export default function Home() {
 
               <Image
                 className='mx-auto my-6 rounded-full drop-shadow-lg'
-                src='/avatar.png'
+                src='/icons/nonick.png'
                 width={180}
                 height={180}
                 alt="nonick's avatar"
