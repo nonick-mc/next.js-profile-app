@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { TbLocation, TbCake, TbMedal } from 'react-icons/tb';
 import { AiOutlineRight } from 'react-icons/ai';
@@ -38,7 +38,7 @@ const Products: Product[] = [
     name: '日本語修正パック',
     description: 'Minecraftの日本語フォントを元に戻す',
     href: 'https://github.com/nonick-mc/minecraft-fixfont',
-    imgPath: '/icons/fixfont',
+    imgPath: '/icons/fixfont.png',
   }
 ];
 
@@ -79,7 +79,7 @@ export default function Home() {
                 </h4>
               </section>
 
-              <Image
+              <img
                 className='mx-auto my-6 rounded-full drop-shadow-lg'
                 src='/icons/nonick.png'
                 width={180}
@@ -166,7 +166,7 @@ export default function Home() {
                 <div className='flex flex-wrap gap-6 my-4 items-center justify-center'>
                   {ProgramLangs.map((name, index) => (
                     <motion.div whileHover={{ scale: 1.2 }} key={index}>
-                      <Image
+                      <img
                         className='drop-shadow-md'
                         src={`/programLangs/${name}.svg`}
                         width={50}
@@ -187,7 +187,7 @@ export default function Home() {
                       <a href={href} className='text-inherit'>
                         <div className='flex w-full p-5 justify-between bg-slate-200 dark:bg-slate-700 items-center drop-shadow-md rounded-md'>
                           <div className='flex gap-4 items-center'>
-                            <Image
+                            <img
                               className='rounded-full'
                               src={`/${imgPath}.png`}
                               width={50}
