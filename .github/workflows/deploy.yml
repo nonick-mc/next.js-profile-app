@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+# main ブランチ の push 時にこのワークフローを実行する
+on:
+ push:
+   branches:
+     - master
+
+jobs:
+ build:
+   runs-on: ubuntu-latest
+
+   steps:
+     # main ブランチを取得する
+     - name: Checkout
+       uses: actions/checkout@v3
+
+     # Node.js のセットアップをする
+     - name: Setup Node
+       uses: actions/setup-node@v3
+       with:
+         node-version: 16
+         cache: yarn
+
+     # パッケージをインストールする
+     - name: Install dependencies
+       run: yarn --frozen-lockfile
+
+     # ビルドする
+     - name: Build
+       run: yarn build
+
+     # GitHub Pages にデプロイする
+     - name: Deploy
+       uses: peaceiris/actions-gh-pages@v3
+       with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         publish_dir: out
