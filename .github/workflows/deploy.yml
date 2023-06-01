@@ -15,20 +15,19 @@ jobs:
      - name: Checkout
        uses: actions/checkout@v3
 
-     # Node.js のセットアップをする
-     - name: Setup Node
-       uses: actions/setup-node@v3
+     # pnpm のセットアップをする
+     - name: Setup Pnpm
+       uses: pnpm/action-setup@v2.2.2
        with:
-         node-version: 16
-         cache: yarn
+        version: 8.4.0
 
      # パッケージをインストールする
      - name: Install dependencies
-       run: yarn --frozen-lockfile
+       run: pnpm i --frozen-lockfile
 
      # ビルドする
      - name: Build
-       run: yarn build
+       run: pnpm build
 
      # GitHub Pages にデプロイする
      - name: Deploy
