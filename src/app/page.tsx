@@ -189,7 +189,7 @@ export default function Home() {
                           <div className='flex gap-4 items-center'>
                             <img
                               className='rounded-full'
-                              src={`/${imgPath}.png`}
+                              src={`/${imgPath}`}
                               width={50}
                               height={50}
                               alt={name}
