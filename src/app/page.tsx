@@ -5,7 +5,7 @@ import { CardName } from '@/components/card-name';
 import { LinkCard } from '@/components/link-card';
 import { DiscordPartnerIcon } from '@/components/logo';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { FaBirthdayCake, FaDiscord, FaGithub, FaLocationArrow, FaSteam, FaTwitter, FaXbox, FaYoutube } from 'react-icons/fa';
+import { FaBirthdayCake, FaDiscord, FaGithub, FaLocationArrow, FaSteam, FaTwitter, FaUserGraduate, FaXbox, FaYoutube } from 'react-icons/fa';
 
 export default function Home() {
   return (
@@ -23,12 +23,16 @@ export default function Home() {
             </section>
             <div className='grid gap-1'>
               <div className='flex gap-2 items-center text-muted-foreground'>
+                <FaBirthdayCake/>
+                <p>200X年10月17日</p>
+              </div>
+              <div className='flex gap-2 items-center text-muted-foreground'>
                 <FaLocationArrow/>
                 <p>日本 / Japan</p>
               </div>
               <div className='flex gap-2 items-center text-muted-foreground'>
-                <FaBirthdayCake/>
-                <p>20XX年10月17日</p>
+                <FaUserGraduate/>
+                <p>学生</p>
               </div>
             </div>
           </FadeUpDiv>
