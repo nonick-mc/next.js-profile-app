@@ -6,8 +6,8 @@ import { ThemeProvider } from 'next-themes';
 
 export default function Provider({ children }: { children: React.ReactNode }) {
   return (
-    <AnimatePresence mode='wait' onExitComplete={() => window.scrollTo(0, 0)}>
-      <ThemeProvider attribute='class' defaultTheme='light'>
+    <AnimatePresence mode='wait'>
+      <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
         {children}
       </ThemeProvider>
     </AnimatePresence>

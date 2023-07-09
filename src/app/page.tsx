@@ -1,215 +1,120 @@
 /* eslint-disable @next/next/no-img-element */
-'use client';
-
-import { motion } from 'framer-motion';
-import { TbLocation, TbCake, TbMedal } from 'react-icons/tb';
-import { AiOutlineRight } from 'react-icons/ai';
-import { BsYoutube, BsTwitter, BsGithub, BsSun, BsMoon, BsDiscord } from 'react-icons/bs';
-import { useTheme } from 'next-themes';
-
-interface Product {
-  name: string,
-  description: string,
-  href: string,
-  imgPath: string,
-}
-
-const ProgramLangs = [
-  'C',
-  'JavaScript',
-  'TypeScript',
-  'Dart'
-];
-
-const Products: Product[] = [
-  {
-    name: 'NoNICK.js',
-    description: 'Discordサーバー管理BOT',
-    href: 'https://nonick-js.com',
-    imgPath: 'icons/nonickjs.png'
-  },
-  {
-    name: 'NoNICK.stats',
-    description: 'Minecraftサーバーの統計表示BOT',
-    href: 'https://docs.nonick-js.com/nonick-stats/what-is-nonick-stats/',
-    imgPath: 'icons/nonickstats.png'
-  },
-  {
-    name: '日本語修正パック',
-    description: 'Minecraftの日本語フォントを元に戻す',
-    href: 'https://github.com/nonick-mc/minecraft-fixfont',
-    imgPath: 'icons/fixfont.png',
-  }
-];
+import { FadeUpCard, FadeUpDiv, FadeUpStagger } from '@/components/animation';
+import { CardIcon } from '@/components/card-icon';
+import { CardName } from '@/components/card-name';
+import { LinkCard } from '@/components/link-card';
+import { DiscordPartnerIcon } from '@/components/logo';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { FaBirthdayCake, FaDiscord, FaGithub, FaLocationArrow, FaSteam, FaTwitter, FaXbox, FaYoutube } from 'react-icons/fa';
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
-
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }} 
-      transition={{ duration: 0.5 }}
-    >
-      <div className='max-w-screen-md mx-auto py-24 px-2'>
-        <div className='my-10 p-5 gap-2 backdrop-blur-md dark:backdrop-blur-xl bg-slate-200/90 dark:bg-slate-800/90 rounded-xl drop-shadow-xl'>
-          <div className='flex justify-end items-center'>
-            <button
-              className='mt-3 p-3 rounded-full hover:bg-black/20'
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            >
-              {
-                theme === 'dark'
-                ? <BsSun className='dark:text-white' size={20} />
-                : <BsMoon className='dark:text-white' size={20} />
-              }
-            </button>
-          </div>
-
-          <div className='pt-8 pb-12'>  
-            <div className='max-w-md mx-auto'>
-              <section className='flex flex-col items-center justify-center text-center'>
-                <h1 className='dark:text-white font-black tracking-wider text-4xl md:text-5xl'>
-                  NoNICK
-                </h1>
-                <h4 className='text-gray-700 dark:text-gray-300 text-lg md:text-xl'>
-                  なんちゃって
-                  <span className='inline-block'>コンテンツクリエイター</span>
-                </h4>
-              </section>
-
-              <img
-                className='mx-auto my-6 rounded-full drop-shadow-lg'
-                src='/icons/nonick.png'
-                width={180}
-                height={180}
-                alt="nonick's avatar"
-              />
-
-              <section className='flex flex-col gap-1 items-center justify-center text-gray-600'>
-                <div className='flex gap-2 items-center dark:text-gray-300'>
-                  <TbLocation size={20}/>
-                  <p className='text-lg md:text-xl tracking-wide'>Japan</p>
-                </div>
-                <div className='flex gap-2 items-center dark:text-gray-300'>
-                  <TbCake size={20}/>
-                  <p className='text-lg md:text-xl tracking-wide'>200X&nbsp;/&nbsp;10&nbsp;/&nbsp;17</p>
-                </div>
-              </section>
-
-              <div className='flex gap-5 items-center justify-center my-9'>
-                <motion.div whileHover={{ scale: 1.2 }}>
-                  <div className='flex w-10 h-10 items-center justify-center rounded-full bg-red-500/50'>
-                    <a href='https://youtube.com/@nonick_mc'>
-                      <BsYoutube className='text-black dark:text-white' size={20} />
-                    </a>
-                  </div>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.2 }}>
-                  <div className='flex w-10 h-10 items-center justify-center rounded-full bg-blue-500/50'>
-                    <a href='https://twitter.com/@nonick_mc'>
-                      <BsTwitter className='text-black dark:text-white' size={20} />
-                    </a>
-                  </div>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.2 }}>
-                  <div className='flex w-10 h-10 items-center justify-center rounded-full bg-indigo-500/50'>
-                    <a href='https://discord.gg/nonick-mc'>
-                      <BsDiscord className='text-black dark:text-white' size={20} />
-                    </a>
-                  </div>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.2 }}>
-                  <div className='flex w-10 h-10 items-center justify-center rounded-full bg-black/50'>
-                    <a href='https://github.com/nonick-mc'>
-                      <BsGithub className='text-black dark:text-white' size={20} />
-                    </a>
-                  </div>
-                </motion.div>
+    <main className='container py-6 space-y-6 lg:my-10'>
+      <FadeUpStagger>
+        <div className='h-16 flex items-center justify-end'>
+          <ThemeToggle/>
+        </div>
+        <div className='grid grid-cols-12 grid-rows-3 gap-5 lg:gap-6'>
+          <FadeUpDiv className='col-span-12 lg:col-span-4 row-span-3 space-y-5 md:space-y-7 lg:space-y-8'>
+            <img className='w-[150px] lg:w-[200px] pointer-events-none rounded-full shadow-xl' src='/icons/nonick.png' alt="nonick's avatar"/>
+            <section>
+              <h1 className='text-3xl lg:text-4xl font-black'>NoNICK</h1>
+              <h2 className='text-muted-foreground text-lg lg:text-xl'>なんちゃってコンテンツクリエイター</h2>
+            </section>
+            <div className='grid gap-1'>
+              <div className='flex gap-2 items-center text-muted-foreground'>
+                <FaLocationArrow/>
+                <p>日本 / Japan</p>
               </div>
-
-              <div className='flex flex-col gap-3 w-full p-5 text-sm md:text-base bg-slate-300 dark:bg-slate-700 rounded-md dark:text-white'>
-                <p>主に動画編集やプログラミングをしている学生です👋</p>
-                <p>YouTubeではMinecraftのゲーム実況を、プログラミングでは主にDiscordBOTやWebページの開発をしています！</p>
-                <p>「視聴者との距離を短く」をモットーに、Discordサーバーでのイベント等を積極的に行っています。</p>            
-                <p>是非気軽に話しかけてください！</p>
-              </div>
-
-              <div className='mt-16'>
-                <h3 className='title'>
-                  パートナーシップ
-                </h3>
-
-                <div className='w-fit mx-auto my-4 text-black dark:text-white'>
-                  <li className='text-base md:text-lg'>
-                    <a href='https://discord.com/partners' className='text-indigo-500'>
-                      Discordパートナー
-                    </a>
-                    &nbsp;(2022/5 ~)
-                  </li>
-                  <li className='text-base md:text-lg'>
-                    <a href='https://www.galaxite.net/influencer-application/' className='text-indigo-500'>
-                      Galaxiteインフルエンサー
-                    </a>
-                    &nbsp;(2023/3 ~)
-                  </li>
-                </div>
-              </div>
-
-              <div className='mt-16'>
-                <h3 className='title'>
-                  よく使う
-                  <span className='inline-block'>プログラミング言語</span>
-                </h3>
-
-                <div className='flex flex-wrap gap-6 my-4 items-center justify-center'>
-                  {ProgramLangs.map((name, index) => (
-                    <motion.div whileHover={{ scale: 1.2 }} key={index}>
-                      <img
-                        className='drop-shadow-md'
-                        src={`/programLangs/${name}.svg`}
-                        width={50}
-                        height={50}
-                        alt={name}
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              <div className='mt-16'>
-                <h3 className='title'>作ったもの</h3>
-
-                <div className='mt-6 flex flex-col gap-3'>
-                  {Products.map(({ name, description, href, imgPath }, index) => (
-                    <motion.div whileHover={{ scale: 1.05 }} key={index}>
-                      <a href={href} className='text-inherit'>
-                        <div className='flex w-full p-5 justify-between bg-slate-200 dark:bg-slate-700 items-center drop-shadow-md rounded-md'>
-                          <div className='flex gap-4 items-center'>
-                            <img
-                              className='rounded-full'
-                              src={`/${imgPath}`}
-                              width={50}
-                              height={50}
-                              alt={name}
-                            />
-                            <section className='flex flex-col dark:text-white text-base md:text-xl'>
-                              <p className='font-bold'>{name}</p>
-                              <p>{description}</p>
-                            </section>
-                          </div>
-                          <AiOutlineRight className='dark:text-white' size={15} />
-                        </div>
-                      </a>
-                    </motion.div>
-                  ))}
-                </div>
+              <div className='flex gap-2 items-center text-muted-foreground'>
+                <FaBirthdayCake/>
+                <p>20XX年10月17日</p>
               </div>
             </div>
-          </div>
+          </FadeUpDiv>
+          <LinkCard 
+            className='grid gap-3 col-span-12 md:col-span-6 lg:col-span-4 transition-colors hover:border-youtube p-6'
+            href='https://youtube.com/nonick_mc'
+          >
+            <CardIcon className='bg-youtube'>
+              <FaYoutube size={25}/>
+            </CardIcon>
+            <CardName name='YouTube' id='@nonick_mc'/>
+          </LinkCard>
+          <LinkCard
+            className='grid gap-3 col-span-6 md:col-span-3 lg:col-span-2 transition-colors hover:border-twitter p-6'
+            href='https://twitter.com/nonick_mc'
+          >
+            <CardIcon className='bg-twitter'>
+              <FaTwitter size={25}/>
+            </CardIcon>
+            <CardName name='Twitter' id='@nonick_mc'/>
+          </LinkCard>
+          <LinkCard
+            className='grid gap-3 col-span-6 md:col-span-3 lg:col-span-2 transition-colors hover:border-discord p-6'
+            href='https://discord.gg/nonick-mc'
+          >
+            <CardIcon className='bg-discord'>
+              <FaDiscord size={25}/>
+            </CardIcon>
+            <CardName name='Discord' id='@nonick_mc'>
+              <DiscordPartnerIcon/>
+            </CardName>
+          </LinkCard>
+          <FadeUpCard className='grid gap-3 col-span-6 md:col-span-3 lg:col-span-2 transition-colors hover:border-xbox p-6'>
+            <CardIcon className='bg-xbox'>
+              <FaXbox size={25}/>
+            </CardIcon>
+            <CardName name='Xbox' id='NULL1017'/>
+          </FadeUpCard>
+          <LinkCard
+            className='grid gap-3 md:col-span-3 col-span-6 lg:col-span-2 transition-colors hover:border-steam p-6'
+            href='https://steamcommunity.com/id/nonick-mc/'
+          >
+            <CardIcon className='bg-steam'>
+              <FaSteam size={25}/>
+            </CardIcon>
+            <CardName name='Steam' id='NULL1017'/>
+          </LinkCard>
+          <LinkCard
+            className='flex justify-between col-span-12 md:col-span-6 lg:col-span-4 transition-colors hover:border-black dark:hover:border-gray-500 p-6'
+            href='https://github.com/nonick-mc'
+          >
+            <div className='grid gap-3'>
+              <CardIcon className='bg-github'>
+                <FaGithub size={25}/>
+              </CardIcon>
+              <CardName name='GitHub' id='@nonick-mc'/>
+            </div>
+            <div className='grid grid-cols-2 gap-3'>
+              <img className='w-8 h-8' src='/programLangs/JavaScript.svg' alt='javascript'/>
+              <img className='w-8 h-8' src='/programLangs/TypeScript.svg' alt='typescript'/>
+            </div>
+          </LinkCard>
+          <LinkCard
+            className='grid gap-3 col-span-12 md:col-span-6 lg:col-span-4 transition-colors hover:border-black dark:hover:border-gray-500 p-6'
+            href='https://nonick-js.com'
+          >
+            <img
+              className='w-10 h-10 rounded-2xl'
+              src='/icons/nonickjs.png'
+              alt='nonick.js icon'
+            />
+            <CardName name='NoNICK.js' id='サーバー管理に役立つ多機能DiscordBot'/>
+          </LinkCard>
+          <LinkCard
+            className='grid gap-3 col-span-12 md:col-span-6 lg:col-span-4 transition-colors hover:border-black dark:hover:border-gray-500 p-6'
+            href='https://github.com/nonick-mc/nonick.stats'
+          >
+            <img
+              className='w-10 h-10 rounded-2xl'
+              src='/icons/nonickstats.png'
+              alt='nonick.stats icon'
+            />
+            <CardName name='NoNICK.stats' id='The HIVEサーバーの統計を表示するDiscordBOT'/>
+          </LinkCard>
         </div>
-      </div>
-    </motion.main>
+      </FadeUpStagger>
+    </main>
   )
 }
