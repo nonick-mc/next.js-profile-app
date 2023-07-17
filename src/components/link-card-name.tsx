@@ -6,7 +6,7 @@ interface CardNameProps extends React.HTMLAttributes<HTMLDivElement> {
   id: string,
 }
 
-const CardName = React.forwardRef<
+const LinkCardName = React.forwardRef<
   HTMLDivElement,
   CardNameProps
 >(({ className, children, name, id, ...props }, ref) => (
@@ -25,6 +25,6 @@ const CardName = React.forwardRef<
     </section>
   </div>
 ));
-CardName.displayName = 'CardIcon';
+LinkCardName.displayName = 'LinkCardIcon';
 
-export { CardName }
+export { LinkCardName }

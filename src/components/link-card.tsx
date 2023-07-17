@@ -7,17 +7,19 @@ import { FADE_UP_ANIMATION_VARIANTS } from './animation';
 
 interface LinkCardProps extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string,
+  isGrid?: boolean,
 }
 
 const LinkCard = React.forwardRef<
   HTMLAnchorElement,
   LinkCardProps
->(({ className, children, href }, ref) => (
+>(({ className, children, href, isGrid }, ref) => (
   <motion.a
     ref={ref}
     className={cn(
-      "rounded-xl border bg-card text-card-foreground shadow",
-      className
+      'rounded-xl border bg-card text-card-foreground shadow transition-colors',
+      className,
+      isGrid && 'grid gap-3',
     )}
     href={href}
     target='_blank'
@@ -27,6 +29,6 @@ const LinkCard = React.forwardRef<
     {children}
   </motion.a>
 ));
-LinkCard.displayName = 'CardIcon';
+LinkCard.displayName = 'LinkCard';
 
 export { LinkCard }

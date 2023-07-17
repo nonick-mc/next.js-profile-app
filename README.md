@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[Next.js](https://nextjs.org)・[TailwindCSS](https://tailwindcss.com/)・[Shadcn/ui](https://ui.shadcn.com/)で構築された、シンプルなプロフィールページ。  
+**🔮サンプル → https://nonick-mc.com**
+
+![sample](https://github.com/nonick-mc/nonick-mc.github.io/assets/87268971/f10afc6f-c6aa-46d3-b368-c81453b4e8c9)
 
 ## Getting Started
 
-First, run the development server:
+`src/app/page.tsx`を編集する前に、以下の手順を行ってください。  
+※Next.js、及びTailwindCSSを理解していることを推奨します！
+1. このリポジトリをforkし、`npm i`で必要なライブラリをインストールする。
+2. `src/config/site.ts`を編集し、Webサイトのメタデータを編集する。
+3. 同様に、`src/app/layout.tsx`、`src/app/opengraph-image.png`を編集する。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Components
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`src/components`には、プロフィールページで使用されている要素の一部がコンポーネントとして切り出されています。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* `animation.tsx` ... ページ読み込み時のフェードアニメーションを制御する親コンポーネント
+* `external-link.tsx` ... `next/link`の遷移先を新規タブにする際の設定をまとめたコンポーネント
+* `link-card.tsx` ... リンクカードの枠組み部分
+* `link-card-name.tsx` ... リンクカードの名前・ID部分
+* `link-card-icon.tsx` ... リンクカードのアイコン部分
+* `theme-toggle.tsx` ... ダークテーマ・ライトテーマの切り替えボタン
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deploy
 
-## Learn More
+このリポジトリには、masterブランチへコミットが行われた際に、Github Action内でビルドを自動で行い、GitHub Pagesに公開するワークフローが組み込まれています。
 
-To learn more about Next.js, take a look at the following resources:
+1. リポジトリの**Setting**から、**Actions (General)**→**Workflow permissions**を、**Read and write permission**に設定する。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. ユーザー設定 (自分のアイコンをクリックして**Setting**)の一番下にある**Developer Setting**を選択し、表示された画面の**Personal access tokens**の**Fine-grained tokens**を選択し、**Generate new token**からデプロイ用のパーソナルトークンを作成する。作成したトークンはコピーしておくと良い。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| 項目 | 設定 |
+| --- | --- |
+| `Token name` | トークンの名前 (自分がわかりやすいものに設定する) |
+| `Expiration` | トークンの有効期限 |
+| `Repository access` | **Public Repositories (read-only)** に設定 | 
 
-## Deploy on Vercel
+3. 再度リポジトリの**Setting**に戻り、**Environment** → **Environment secrets**のAdd secretから、デプロイ用の環境変数を作成する。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| 項目 | 値 |
+| --- | --- |
+| `Name` | **TOKEN** |
+| `Value` | 手順2で作成したパーソナルトークン |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. コミットを行う。
+5. デプロイが完了するまで待ち、リポジトリの**Setting** → **Pages**の**Build and deployment**の**Branch**を、`gh-pages`に設定する。
