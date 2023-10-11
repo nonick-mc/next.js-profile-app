@@ -1,10 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
 import { FadeUpCard, FadeUpDiv, FadeUpStagger } from '@/components/animation';
 import { CardIcon } from '@/components/card-icon';
 import { CardName } from '@/components/card-name';
 import { LinkCard } from '@/components/link-card';
 import { DiscordPartnerIcon } from '@/components/logo';
 import { ThemeToggle } from '@/components/theme-toggle';
+import Image from 'next/image';
 import {
   FaBirthdayCake,
   FaDiscord,
@@ -17,6 +17,8 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 
+import MyAvatar from '../../public/icons/nonick.png';
+
 export default function Home() {
   return (
     <main className='container space-y-6 py-6 lg:my-10'>
@@ -26,9 +28,9 @@ export default function Home() {
         </div>
         <div className='grid grid-cols-12 grid-rows-3 gap-5 lg:gap-6'>
           <FadeUpDiv className='col-span-12 row-span-3 space-y-5 md:space-y-7 lg:col-span-4 lg:space-y-8'>
-            <img
+            <Image
               className='pointer-events-none w-[150px] rounded-full shadow-xl lg:w-[200px]'
-              src='/icons/nonick.png'
+              src={MyAvatar}
               alt="nonick's avatar"
             />
             <section>
@@ -107,23 +109,31 @@ export default function Home() {
               <CardName name='GitHub' id='@nonick-mc' />
             </div>
             <div className='grid grid-cols-2 gap-3'>
-              <img className='h-8 w-8' src='/programLangs/JavaScript.svg' alt='javascript' />
-              <img className='h-8 w-8' src='/programLangs/TypeScript.svg' alt='typescript' />
+              <Image width={32} height={32} src='/programLangs/JavaScript.svg' alt='javascript' />
+              <Image width={32} height={32} src='/programLangs/TypeScript.svg' alt='typescript' />
             </div>
           </LinkCard>
           <LinkCard
             className='col-span-12 grid gap-3 p-6 transition-colors hover:border-black dark:hover:border-gray-500 md:col-span-6 lg:col-span-4'
             href='https://nonick-js.com'
           >
-            <img className='h-10 w-10 rounded-2xl' src='/icons/nonickjs.png' alt='nonick.js icon' />
+            <Image
+              width={40}
+              height={40}
+              className='rounded-2xl'
+              src='/icons/nonickjs.png'
+              alt='nonick.js icon'
+            />
             <CardName name='NoNICK.js' id='サーバー管理に役立つ多機能DiscordBot' />
           </LinkCard>
           <LinkCard
             className='col-span-12 grid gap-3 p-6 transition-colors hover:border-black dark:hover:border-gray-500 md:col-span-6 lg:col-span-4'
             href='https://github.com/nonick-mc/nonick.stats'
           >
-            <img
-              className='h-10 w-10 rounded-2xl'
+            <Image
+              width={40}
+              height={40}
+              className='rounded-2xl'
               src='/icons/nonickstats.png'
               alt='nonick.stats icon'
             />
