@@ -4,6 +4,6 @@ export const siteConfig: SiteConfig = {
   metadata: {
     name: 'NoNICK',
     description: 'なんちゃってコンテンツクリエイター',
-    url: 'https://nonick-mc.com'
-  }
-}
+    url: 'https://nonick-mc.com',
+  },
+};

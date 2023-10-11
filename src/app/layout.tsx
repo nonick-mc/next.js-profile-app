@@ -29,17 +29,15 @@ export const metadata: Metadata = {
     description: siteConfig.metadata.description,
     site: '@nonick_mc',
     creator: '@nonick_mc',
-  }
-}
+  },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang='ja'>
       <body className={notoSansJp.className}>
-        <Provider>
-          {children}
-        </Provider>
+        <Provider>{children}</Provider>
       </body>
     </html>
-  )
+  );
 }
