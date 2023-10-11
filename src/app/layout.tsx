@@ -10,6 +10,7 @@ const notoSansJp = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
+  metadataBase: siteConfig.metadata.url,
   title: {
     default: siteConfig.metadata.name,
     template: `%s - ${siteConfig.metadata.name}`,
@@ -27,8 +28,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.metadata.name,
     description: siteConfig.metadata.description,
-    site: '@nonick_mc',
-    creator: '@nonick_mc',
+    site: siteConfig.metadata.twitter_id,
+    creator: siteConfig.metadata.twitter_id,
   },
 };
 
