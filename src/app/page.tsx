@@ -1,6 +1,6 @@
 import { FadeUpCard, FadeUpDiv, FadeUpStagger } from '@/components/animation';
-import { CardIcon } from '@/components/card-icon';
-import { CardName } from '@/components/card-name';
+import { CardIcon } from '@/components/link-card-icon';
+import { CardName } from '@/components/link-card-name';
 import { LinkCard } from '@/components/link-card';
 import { DiscordPartnerIcon } from '@/components/logo';
 import { ThemeToggle } from '@/components/theme-toggle';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 
-const CardIcon = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+const LinkCardIcon = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, children, ...props }, ref) => (
     <div
       ref={ref}
@@ -12,6 +12,6 @@ const CardIcon = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
     </div>
   ),
 );
-CardIcon.displayName = 'CardIcon';
+LinkCardIcon.displayName = 'CardIcon';
 
-export { CardIcon };
+export { LinkCardIcon as CardIcon };

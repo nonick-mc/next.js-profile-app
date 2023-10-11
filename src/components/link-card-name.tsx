@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 
-interface CardNameProps extends React.HTMLAttributes<HTMLDivElement> {
+interface LinkCardNameProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
   id: string;
 }
 
-const CardName = React.forwardRef<HTMLDivElement, CardNameProps>(
+const LinkCardName = React.forwardRef<HTMLDivElement, LinkCardNameProps>(
   ({ className, children, name, id, ...props }, ref) => (
     <div ref={ref} className={cn('grid', className)} {...props}>
       <p>{name}</p>
@@ -17,6 +17,6 @@ const CardName = React.forwardRef<HTMLDivElement, CardNameProps>(
     </div>
   ),
 );
-CardName.displayName = 'CardIcon';
+LinkCardName.displayName = 'CardIcon';
 
-export { CardName };
+export { LinkCardName as CardName };
